@@ -1,20 +1,19 @@
 import '../css/style.css'
 import {Actor, Color, DisplayMode, Engine, Vector} from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
-import { Player } from "./player.js";
+import { Start } from "./scenes/startscreen.js";
+import { Settings } from './scenes/settingsscreen.js'
 
 export class Game extends Engine {
-
     constructor() {
-        super({ displayMode: DisplayMode.FillScreen })
+        super({ width: 800, height: 600 });
         this.start(ResourceLoader).then(() => this.startGame())
     }
     startGame() {
-        console.log("start de game!")
+        this.addScene('settings', new Settings())
+        this.addScene('start', new Start())
 
-        let player = new Player
-        this.add(player)
-
+        this.goToScene('settings')
     }
 }
 
