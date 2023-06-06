@@ -1,7 +1,8 @@
-import { Actor, DisplayMode, ExitViewPortEvent, Input, Vector } from "excalibur";
+import {Actor, DisplayMode, ExitViewPortEvent, Input, Timer, Vector} from "excalibur";
 import { Resources, ResourceLoader } from "./resources";
 import { Bullet } from './bullet.js'
 import { Enemy } from "./enemy.js"
+import { Coin } from "./coin.js";
 import { Gameover } from './scenes/gameover.js'
 
     // onInitialize(engine) {
@@ -25,6 +26,7 @@ import { Gameover } from './scenes/gameover.js'
     // }
 export class Player extends Bullet {
     game;
+    coins;
     constructor() {
         super({
             // width: Resources.Player.width,
@@ -46,6 +48,11 @@ export class Player extends Bullet {
         if (event.other instanceof Enemy) {
             event.other.kill()
             this.game.goToScene('Gameover')
+        }
+        if (event.other instanceof Coin){
+            event.other.kill()
+
+            this.game.currentScene.updateCoins()
         }
     }
 

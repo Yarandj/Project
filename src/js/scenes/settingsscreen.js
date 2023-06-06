@@ -13,7 +13,7 @@ export class Settings extends Scene {
         this.game = engine;
 
         const background = new Actor();
-        background.graphics.use(Resources.Background.toSprite());
+        background.graphics.use(Resources.SettingsBackground.toSprite());
         background.pos = new Vector(0, 0);
         background.anchor = new Vector(0, 0);
         this.add(background);
