@@ -116,6 +116,4 @@ export class Start extends Scene {
         this.coinsText.text = `Coins: ${this.coins}`
         localStorage.setItem("coins", JSON.stringify(data2))
     }
-
-    // localStorage.setItem("score", JSON.stringify(data))
 }
