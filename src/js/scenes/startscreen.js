@@ -19,8 +19,8 @@ export class Start extends Scene {
     onInitialize(engine) {
         const space = new MovingBackground();
         this.add(space);
-        let player = new Player();
-        this.add(player);
+        // let player = new Player();
+        // this.add(player);
 
         //Score
         this.scoreText = new Label({
