@@ -99,6 +99,14 @@ export class Start extends Scene {
         coins.pos = new Vector(800, Math.random() * 600);
     }
 
+    onActivate(_context) {
+        this.score = 0;
+
+        let player = new Player
+
+        this.add(player)
+    }
+
     updateScore() {
         this.score++
         let data = {
